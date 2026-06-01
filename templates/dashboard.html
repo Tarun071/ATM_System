@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATM Dashboard</title>
+
+<style>
+
+:root{
+    --bg:#0F172A;
+    --card:#1E293B;
+    --primary:#2563EB;
+    --primary-hover:#1D4ED8;
+    --success:#22C55E;
+    --danger:#EF4444;
+    --text:#F8FAFC;
+    --muted:#94A3B8;
+    --border:#334155;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:700px;
+    background:var(--card);
+    padding:40px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+.header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.logo{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+.header h1{
+    color:var(--text);
+}
+
+.header p{
+    color:var(--muted);
+    margin-top:8px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.btn{
+    text-decoration:none;
+    background:var(--primary);
+    color:white;
+    padding:18px;
+    border-radius:12px;
+    text-align:center;
+    font-size:18px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:var(--primary-hover);
+    transform:translateY(-3px);
+}
+
+.logout{
+    background:var(--danger);
+}
+
+.logout:hover{
+    background:#DC2626;
+}
+
+.footer{
+    text-align:center;
+    color:var(--muted);
+    margin-top:25px;
+    font-size:13px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="logo">🏧</div>
+        <h1>ATM Banking</h1>
+        <p>Select a transaction</p>
+    </div>
+
+    <div class="grid">
+
+        <a class="btn" href="/withdraw">
+            💰 Withdraw
+        </a>
+
+        <a class="btn" href="/deposit">
+            ➕ Deposit
+        </a>
+
+        <a class="btn" href="/check_balance">
+            📊 Check Balance
+        </a>
+
+        <a class="btn" href="/statment">
+            🧾 Statement
+        </a>
+
+        <a class="btn" href="/pin_change">
+            🔒 Change PIN
+        </a>
+
+        <a class="btn logout" href="/">
+            🚪 Logout
+        </a>
+
+    </div>
+
+    <div class="footer">
+        Secure Banking Services
+    </div>
+
+</div>
+
+</body>
+</html>

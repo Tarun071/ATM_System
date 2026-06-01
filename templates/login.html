@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATM Login</title>
+
+<style>
+
+:root{
+    --bg:#0F172A;
+    --card:#1E293B;
+    --primary:#2563EB;
+    --primary-hover:#1D4ED8;
+    --text:#F8FAFC;
+    --muted:#94A3B8;
+    --border:#334155;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:var(--bg);
+}
+
+.login-box{
+    width:380px;
+    background:var(--card);
+    padding:40px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+.atm-icon{
+    text-align:center;
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+h1{
+    text-align:center;
+    color:var(--text);
+    margin-bottom:8px;
+}
+
+.subtitle{
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    background:#0F172A;
+    color:var(--text);
+    font-size:15px;
+}
+
+input::placeholder{
+    color:var(--muted);
+}
+
+input:focus{
+    outline:none;
+    border-color:var(--primary);
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:var(--primary);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:var(--primary-hover);
+}
+
+.footer{
+    text-align:center;
+    color:var(--muted);
+    margin-top:20px;
+    font-size:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="atm-icon">🏧</div>
+
+    <h1>ATM Banking</h1>
+
+    <p class="subtitle">
+        Secure Banking Access
+    </p>
+
+    <form action="/login" method="POST">
+
+        <input
+            type="text"
+            name="account_number"
+            placeholder="Account Number"
+            required
+        >
+
+        <input
+            type="password"
+            name="pin"
+            placeholder="PIN"
+            required
+        >
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <div class="footer">
+        Welcome to ATM Banking Services
+    </div>
+
+</div>
+
+</body>
+</html>

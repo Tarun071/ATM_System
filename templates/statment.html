@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Statement</title>
+
+<style>
+
+:root{
+    --bg:#0F172A;
+    --card:#1E293B;
+    --primary:#2563EB;
+    --primary-hover:#1D4ED8;
+    --success:#22C55E;
+    --text:#F8FAFC;
+    --muted:#94A3B8;
+    --border:#334155;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:950px;
+    background:var(--card);
+    padding:35px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.icon{
+    font-size:55px;
+}
+
+.header h1{
+    color:var(--text);
+    margin-top:10px;
+}
+
+.header p{
+    color:var(--muted);
+    margin-top:5px;
+}
+
+.table-container{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#0F172A;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+th{
+    background:var(--primary);
+    color:white;
+    padding:15px;
+}
+
+td{
+    color:var(--text);
+    padding:14px;
+    text-align:center;
+    border-bottom:1px solid var(--border);
+}
+
+tr:hover{
+    background:#172554;
+}
+
+.amount{
+    color:var(--success);
+    font-weight:bold;
+}
+
+.btn-container{
+    margin-top:25px;
+}
+
+.btn{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    background:var(--primary);
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:var(--primary-hover);
+}
+
+.empty{
+    text-align:center;
+    color:var(--muted);
+    padding:30px;
+}
+
+.footer{
+    text-align:center;
+    color:var(--muted);
+    margin-top:20px;
+    font-size:12px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="icon">🧾</div>
+        <h1>Mini Statement</h1>
+        <p>Recent Transactions</p>
+    </div>
+
+    <div class="table-container">
+
+        {% if transaction %}
+
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Date & Time</th>
+            </tr>
+
+            {% for t in transaction %}
+            <tr>
+                <td>{{ t['type'] }}</td>
+                <td class="amount">₹{{ t['amount'] }}</td>
+                <td>{{ t['time'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% else %}
+
+        <div class="empty">
+            No transactions available.
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    <div class="btn-container">
+        <a href="{{ url_for('dashboard') }}" class="btn">
+            Back to Dashboard
+        </a>
+    </div>
+
+    <div class="footer">
+        Secure Banking Services
+    </div>
+
+</div>
+
+</body>
+</html>
