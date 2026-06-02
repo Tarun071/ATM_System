@@ -76,7 +76,7 @@ def pin_change():
         new_pin=request.form['new_pin']
         old_pin=request.form['old_pin']
         if old_pin==atm_data['pin']:
-            atm_data['pin']=new_pin
+            # atm_data['pin']=new_pin
             return render_template('dashboard.html')
         else:
             return render_template('pin_change.html',error="wrong pin")
