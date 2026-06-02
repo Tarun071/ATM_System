@@ -97,12 +97,6 @@ button:hover{
     background:var(--primary-hover);
 }
 
-.footer{
-    text-align:center;
-    color:var(--muted);
-    margin-top:20px;
-    font-size:12px;
-}
 
 </style>
 </head>
@@ -138,14 +132,18 @@ button:hover{
         <button type="submit">
             Login
         </button>
+        {% if error %}
+    <p style="color:red; text-align: center;">{{ error }}</p>
+{% endif %}
 
     </form>
 
-    <div class="footer">
+    <!-- <div class="footer">
         Welcome to ATM Banking Services
-    </div>
+    </div> -->
 
 </div>
+
 
 </body>
 </html>
